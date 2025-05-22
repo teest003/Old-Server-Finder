@@ -118,7 +118,7 @@ local function getGithubRawContent(filePath) -- New function to get raw content
 end
 local function createOrUpdateGithubFile(filePath, rawContent, commitMessage) 
     if GITHUB_PAT==""or GITHUB_PAT:find("YOUR_")then notify("GitHub PAT not configured!",5);return false end
-    local currentSha=getGithubFileSha(filePath);local apiUrl=string.format("https://api.github.com/repos/%s/%s/contents/%s",GITHUB_USERNAME,GITHUB_REPONAME,filePath)
+    local currentSha=getGithubFileSha(filePath);local apiUrl=string.format("https://api.github.com/repos/%s/%s/contents/contents/%s",GITHUB_USERNAME,GITHUB_REPONAME,filePath)
     local encodedContent=crappyBase64Encode(rawContent);if encodedContent==""and rawContent~=""then notify("Base64 encoding failed.",5);return false end
     local payloadT={message=commitMessage,content=encodedContent};if currentSha then payloadT.sha=currentSha end
     local jsonData=HttpService:JSONEncode(payloadT)

@@ -12,7 +12,7 @@ print(DEBUG_PREFIX .. "Script execution started.")
 -- ------------------------------------------------------------------------------------
 local GITHUB_USERNAME = "teest003"
 local GITHUB_REPONAME = "Old-Server-Finder"
-local GITHUB_PAT = "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" -- !!! REPLACE WITH YOUR NEW, SECURE PAT !!!
+local GITHUB_PAT = "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" -- !!! REPLACE WITH YOUR NEW, SECURE PAT !!!
 
 local SCRIPT_RELOAD_URL = "https://raw.githubusercontent.com/teest003/Old-Server-Finder/refs/heads/main/contents/GAG/Grow%20A%20Garden.lua" 
 

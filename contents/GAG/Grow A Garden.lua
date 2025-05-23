@@ -110,7 +110,7 @@ local function getGithubFileSha(filePath)
 end
 local function getGithubRawContent(filePath) -- New function to get raw content
     if GITHUB_PAT==""or GITHUB_PAT:find("YOUR_")then notify("GitHub PAT not configured for getRawContent!",5);return nil end
-    local apiUrl=string.format("https://api.github.com/repos/%s/%s/contents/%s",GITHUB_USERNAME,GITHUB_REPONAME,filePath);
+    local apiUrl=string.format("https://api.github.com/repos/%s/%s/contents/contents/%s",GITHUB_USERNAME,GITHUB_REPONAME,filePath);
     local reqT={Url=apiUrl,Method="GET",Headers={["Authorization"]="token "..GITHUB_PAT,["Accept"]="application/vnd.github.v3.raw"}} -- Crucial: .raw
     local respD,err=customHttpRequest(reqT)
     if err then print(DEBUG_PREFIX.."Failed to get raw content for "..filePath..". Err: "..err); return nil, err end
